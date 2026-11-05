@@ -24,7 +24,7 @@ With config.js left blank, the site runs in browser-only demo mode. Listings sav
 
 ## Publish the website
 
-See [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md) for steps to publish the site from this private GitHub repository using Cloudflare Pages.
+See [GITHUB_PAGES.md](GITHUB_PAGES.md) for one-time GitHub Pages setup using the public main branch. Cloudflare Pages instructions are also available in [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md).
 
 ## Shared listings
 Follow apps-script/SETUP.md to connect a private Google Sheet using Google Apps Script. After deploying the web app, paste its URL into config.js. The spreadsheet should remain private; active listings and their contact details are public to site visitors.

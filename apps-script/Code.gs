@@ -9,6 +9,7 @@ const REPORT_HEADERS=["createdAt","listingId","reason","status"];
 
 function setupApnaOhio(){
   const book=getBook_();
+  PropertiesService.getScriptProperties().setProperty("SPREADSHEET_ID",book.getId());
   ensureSheet_(book,CFG.LISTINGS,LIST_HEADERS);
   ensureSheet_(book,CFG.REPORTS,REPORT_HEADERS);
   return "ApnaOhio2 sheets are ready.";

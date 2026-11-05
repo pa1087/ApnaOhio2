@@ -12,7 +12,8 @@ function setupApnaOhio(){
   PropertiesService.getScriptProperties().setProperty("SPREADSHEET_ID",book.getId());
   ensureSheet_(book,CFG.LISTINGS,LIST_HEADERS);
   ensureSheet_(book,CFG.REPORTS,REPORT_HEADERS);
-  return "ApnaOhio2 sheets are ready.";
+  Logger.log("ApnaOhio2 spreadsheet: " + book.getUrl());
+  return "ApnaOhio2 sheets are ready. Spreadsheet: " + book.getUrl();
 }
 function doGet(e){
   const p=(e&&e.parameter)||{};
@@ -65,10 +66,15 @@ function activeListings_(){
     .filter(item=>item.id&&item.expiresAt&&new Date(item.expiresAt).getTime()>now).reverse();
 }
 function getBook_(){
-  const active=SpreadsheetApp.getActiveSpreadsheet();if(active)return active;
-  const id=PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID");
-  if(!id)throw new Error("Bind this script to a Sheet or set SPREADSHEET_ID in Script Properties.");
-  return SpreadsheetApp.openById(id);
+  const props=PropertiesService.getScriptProperties();
+  const id=props.getProperty("SPREADSHEET_ID");
+  if(id)return SpreadsheetApp.openById(id);
+  const active=SpreadsheetApp.getActiveSpreadsheet();
+  if(active){props.setProperty("SPREADSHEET_ID",active.getId());return active;}
+  // A standalone Apps Script project can create and bind the Sheet automatically.
+  const created=SpreadsheetApp.create("ApnaOhio2 Community Listings");
+  props.setProperty("SPREADSHEET_ID",created.getId());
+  return created;
 }
 function ensureSheet_(book,name,headers){
   let sheet=book.getSheetByName(name);if(!sheet)sheet=book.insertSheet(name);

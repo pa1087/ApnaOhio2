@@ -22,6 +22,10 @@ Run a local static web server in this folder, for example: python3 -m http.serve
 
 With config.js left blank, the site runs in browser-only demo mode. Listings saved in demo mode are not shared between visitors.
 
+## Publish the website
+
+See [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md) for steps to publish the site from this private GitHub repository using Cloudflare Pages.
+
 ## Shared listings
 Follow apps-script/SETUP.md to connect a private Google Sheet using Google Apps Script. After deploying the web app, paste its URL into config.js. The spreadsheet should remain private; active listings and their contact details are public to site visitors.
 

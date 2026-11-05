@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173d36">
+<meta name="description" content="Find accommodations, rides, jobs, services and community connections across Ohio.">
+<title>ApnaOhio2 — Ohio's community, connected</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><script src="config.js"></script><script src="app.js" defer></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap">MADE FOR OHIO COMMUNITIES <span>Local help. Real connections. ♥</span></div></div>
+<header class="header"><div class="wrap headrow">
+<a class="brand" href="#"><b class="mark">A<span>O</span></b><span>ApnaOhio<span class="orange">2</span><small>OHIO COMMUNITY HUB</small></span></a>
+<nav class="nav"><a class="active" data-nav="all" href="#browse">Explore</a><a data-nav="accommodations" href="#browse">Accommodations</a><a data-nav="rides" href="#browse">Rides</a><a data-nav="community" href="#browse">Community</a></nav>
+<button class="btn primary" data-open-post>＋ Post a free ad</button><button class="menu" id="menu" aria-label="Toggle navigation">☰</button>
+</div><nav class="mobile-nav" id="mobileNav"><a data-nav="all" href="#browse">Explore</a><a data-nav="accommodations" href="#browse">Accommodations</a><a data-nav="rides" href="#browse">Rides</a><a data-nav="community" href="#browse">Community Posts</a></nav></header>
+<main>
+<section class="hero"><div class="orb"></div><div class="wrap hero-inner">
+<div class="eyebrow"><i></i> YOUR OHIO COMMUNITY, ALL IN ONE PLACE</div>
+<h1>Good things happen<br>when we <em>connect.</em></h1>
+<p class="intro">Find a place, share a ride, discover an opportunity, or help someone nearby. Your community starts here.</p>
+<div class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="What are you looking for?" aria-label="Search listings"><i></i><span>⌖</span><input id="citySearch" type="search" placeholder="City or ZIP" aria-label="Filter by city or ZIP"><button class="btn accent" id="searchBtn">Search →</button></div>
+<div class="quick">Popular: <button data-quick="room">Room for rent</button><button data-quick="carpool">Carpool</button><button data-quick="jobs">Jobs</button><button data-quick="furniture">Furniture</button></div>
+<div class="stats"><div><b>3</b><small>Community spaces</small></div><i></i><div><b>Ohio-wide</b><small>Local connections</small></div><i></i><div><b>30 days</b><small>Listing visibility</small></div></div>
+</div></section>
+<section class="categories"><div class="wrap catgrid">
+<button class="cat" data-category="accommodations"><b class="caticon peach">⌂</b><span><strong>Accommodations</strong><small>Rooms, rentals & roommates</small></span><em>↗</em></button>
+<button class="cat" data-category="rides"><b class="caticon mint">↗</b><span><strong>Rides</strong><small>Find a ride or share one</small></span><em>↗</em></button>
+<button class="cat" data-category="community"><b class="caticon lilac">✳</b><span><strong>Community Posts</strong><small>Jobs, services & more</small></span><em>↗</em></button>
+</div></section>
+<section class="browse wrap" id="browse">
+<div class="sectionhead"><div><label>DISCOVER WHAT'S HAPPENING</label><h2>Explore the community<span>.</span></h2><p>Useful finds and helpful people, right here in Ohio.</p></div><button class="btn outline" data-open-post>＋ Create a listing</button></div>
+<div class="toolbar"><div class="filters"><button class="active" data-filter="all">All posts</button><button data-filter="accommodations">Accommodations</button><button data-filter="rides">Rides</button><button data-filter="community">Community</button></div><label class="sort">Sort: <select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label></div>
+<div class="summary"><span id="count">0 listings</span><span id="mode">Loading community posts…</span></div>
+<div class="cards" id="cards" aria-live="polite"><div class="loading">Loading listings…</div></div>
+<div class="empty" id="empty" hidden><div>⌕</div><h3>No listings found</h3><p>Try another search or be the first to share something with your community.</p><button class="btn primary" data-open-post>Post the first listing</button></div>
+<div class="browsefoot">Have something useful to share? <button data-open-post>Post it free →</button></div>
+</section>
+<section class="how"><div class="wrap howgrid"><div><label>SIMPLE BY DESIGN</label><h2>Community works<br><em>better together.</em></h2><p>A simple place to ask, offer, find and share. No complicated sign-up just to post.</p></div>
+<div class="steps"><div><b>01</b><span><strong>Find what you need</strong><small>Search nearby listings or browse categories.</small></span><em>⌕</em></div><div><b>02</b><span><strong>Connect directly</strong><small>Reach out by email, phone or WhatsApp.</small></span><em>↗</em></div><div><b>03</b><span><strong>Share with Ohio</strong><small>Post for free and help someone nearby.</small></span><em>＋</em></div></div></div></section>
+</main>
+<footer><div class="wrap footmain"><a class="brand footbrand" href="#"><b class="mark">A<span>O</span></b><span>ApnaOhio<span class="orange">2</span><small>OHIO COMMUNITY HUB</small></span></a><p>Bringing Ohio communities a little closer, one connection at a time.</p><a href="mailto:hello@apnaohio2.com">Contact the team ↗</a></div><div class="wrap footbottom"><span>© <span id="year"></span> ApnaOhio2. Built for community.</span><span>Be kind. Be safe. Verify before you transact.</span></div></footer>
+<div class="backdrop" id="modal" hidden><section class="panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="panelhead"><div><label>SHARE WITH YOUR COMMUNITY</label><h2 id="modalTitle">Create a listing</h2><p>Reach people across Ohio. It’s free to post.</p></div><button class="close" id="close" aria-label="Close">×</button></div>
+<form id="postForm"><div class="formgrid">
+<label class="field full">What would you like to post?<select name="type" id="type" required><option value="accommodations">Accommodation</option><option value="rides">Ride</option><option value="community">Community post</option></select></label>
+<label class="field full">Listing title<input name="title" maxlength="90" placeholder="e.g. Private room available in Dublin" required></label>
+<label class="field">City<input name="city" maxlength="60" placeholder="e.g. Columbus" required></label><label class="field">ZIP code (optional)<input name="zip" maxlength="10" placeholder="e.g. 43017"></label>
+<label class="field full">Category<select name="category" id="postCategory"></select></label><div class="conditional full" id="conditional"></div>
+<label class="field full">Description<textarea name="description" rows="4" maxlength="1200" placeholder="Add helpful details about your listing…" required></textarea></label>
+<div class="full"><strong class="contactheading">How can people contact you?</strong><p class="hint">Add at least one method. These details will be visible to visitors.</p></div>
+<label class="field">Your name<input name="contactName" maxlength="60" placeholder="Name"></label><label class="field">Email<input name="email" type="email" maxlength="120" placeholder="you@example.com"></label>
+<label class="field">Phone<input name="phone" type="tel" maxlength="24" placeholder="(614) 555-0123"></label><label class="field">WhatsApp number<input name="whatsapp" type="tel" maxlength="24" placeholder="Include country code"></label>
+<label class="trap">Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="notice">◷ Your listing expires after 30 days. Never include passwords or financial information.</div><div class="actions"><button type="button" class="btn ghost" id="cancel">Cancel</button><button class="btn primary" id="submit" type="submit">Publish listing →</button></div><p class="message" id="message" role="status"></p></form>
+</section></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
